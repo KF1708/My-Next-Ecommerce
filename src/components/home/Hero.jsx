@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import { Parallax, Pagination, Navigation } from "swiper/modules";
+import { Parallax, Pagination, Navigation, Autoplay } from "swiper/modules";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
@@ -22,7 +22,10 @@ const Hero = () => {
         pagination={{
           clickable: true,
         }}
-        modules={[Navigation, Pagination]}
+        autoplay={{
+          delay: 3000,
+        }}
+        modules={[Navigation, Pagination, Autoplay]}
         className="mySwiper"
       >
         <SwiperSlide>

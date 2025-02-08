@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import Image from "next/image";
 import manImageOne from "../../../public/images/latestProduct/man_1.webp";
 import manImageTwo from "../../../public/images/latestProduct/man_2.jpg";
@@ -51,7 +51,10 @@ const LatestProduct = () => {
           spaceBetween={30}
           loop={true}
           navigation={true}
-          modules={[Navigation]}
+          autoplay={{
+            delay: 3000,
+          }}
+          modules={[Navigation, Autoplay]}
           className="mySwiper"
         >
           <SwiperSlide>

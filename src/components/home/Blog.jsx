@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { FaArrowRightLong } from "react-icons/fa6";
+
 import { GoDotFill } from "react-icons/go";
 import { IoPerson } from "react-icons/io5";
 const Blog = () => {

@@ -1,27 +1,23 @@
 import Blog from "@/components/home/Blog";
 import Collection from "@/components/home/Collection";
-import Footer from "@/components/home/Footer";
+import FeedBack from "@/components/home/FeedBack";
+
 import Hero from "@/components/home/Hero";
 import LatestProduct from "@/components/home/LatestProduct";
-import Navbar from "@/components/home/Navbar";
-import Image from "next/image";
+import TeamMembers from "@/components/home/teamMembers";
 
 export default function Home() {
   return (
-   <div className="">
-    
-    <Navbar/>
+    <div className="">
+      <Hero />
 
-    <Hero/>
+      <LatestProduct />
 
-    <LatestProduct/>
+      <Collection />
+      <FeedBack />
+      <Blog />
 
-
-    <Collection/>
-
-    <Blog/>
-
-    <Footer/>
-   </div>
+      <TeamMembers />
+    </div>
   );
 }
