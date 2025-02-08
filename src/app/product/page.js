@@ -10,28 +10,15 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import Image from "next/image";
-import Link from "next/link";
+import AllProducts from "@/components/products/AllProducts";
 
 const Product = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://staging-be-ecom.techserve4u.com/api/product/getFeatured")
-      .then((res) => {
-        if (res.data.success) {
-          setProducts(res.data.products);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
 
   return (
     <>
       <div className="featured_product main_container">
         <h2 className="home_section_title">Featured Products</h2>
+        <AllProducts />
 
         <div className="swiper_container">
           <Swiper
@@ -66,7 +53,7 @@ const Product = () => {
             slidesPerView={5}
             spaceBetween={20}
           >
-            {products.map((product) => (
+            {/* {products.map((product) => (
               <SwiperSlide key={product?._id}>
                 <div className="product_card">
                   <div>
@@ -129,7 +116,7 @@ const Product = () => {
                   </div>
                 </div>
               </SwiperSlide>
-            ))}
+            ))} */}
           </Swiper>
           <div className="navigation_buttons">
             <button id="featured_product_prevEl">
