@@ -11,6 +11,7 @@ import Image from "next/image";
 import heroImageOne from "../../../public/images/hero/slider_01.webp";
 import heroImageTwo from "../../../public/images/hero/slider_02.webp";
 import heroImageThree from "../../../public/images/hero/slider_03.webp";
+import Link from "next/link";
 const Hero = () => {
   return (
     <>
@@ -39,9 +40,12 @@ const Hero = () => {
                 Discover the collection as styled by fashion in our new season
                 campaign.
               </p>
-              <button className="font-bold border-2 p-3 ml-60 my-20 border-zinc-900">
-                SHOP NOW
-              </button>
+              <Link href={"/product"}>
+                {" "}
+                <button className="font-bold border-2 p-3 ml-60 my-20 border-zinc-900">
+                  SHOP NOW
+                </button>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
@@ -56,9 +60,12 @@ const Hero = () => {
                 Discover the collection as styled by fashion in our new season
                 campaign.
               </p>
-              <button className="font-bold border-2 p-3 ml-60 my-20 border-zinc-900">
-                SHOP NOW
-              </button>
+              <Link href={"/product"}>
+                {" "}
+                <button className="font-bold border-2 p-3 ml-60 my-20 border-zinc-900">
+                  SHOP NOW
+                </button>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
@@ -73,9 +80,12 @@ const Hero = () => {
                 Discover the collection as styled by fashion in our new season
                 campaign.
               </p>
-              <button className="font-bold border-2 p-3 ml-60 my-20 border-zinc-900">
-                SHOP NOW
-              </button>
+              <Link href={"/product"}>
+                {" "}
+                <button className="font-bold border-2 p-3 ml-60 my-20 border-zinc-900">
+                  SHOP NOW
+                </button>
+              </Link>
             </div>
           </div>
         </SwiperSlide>

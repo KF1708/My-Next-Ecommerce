@@ -6,8 +6,8 @@ import Link from "next/link";
 
 const Collection = () => {
   return (
-    <div className="py-20">
-      <h2 className="font-serif font-bold text-center text-3xl pb-14">
+    <div className="py-10">
+      <h2 className="font-serif font-bold text-center text-3xl pb-10">
         New Arrivals And Latest Collection
       </h2>
       <div className="flex gap-9 justify-evenly">

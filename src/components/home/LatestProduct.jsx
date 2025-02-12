@@ -23,11 +23,11 @@ import womanImageFive from "../../../public/images/latestProduct/woman_5.webp";
 import womanImageSix from "../../../public/images/latestProduct/woman_6.webp";
 const LatestProduct = () => {
   return (
-    <div className="py-20 px-10">
+    <div className="py-10 px-10 bg-gray-50">
       <h1 className="text-center font-bold text-3xl font-serif ">
         Latest Product
       </h1>
-      <p className="text-center py-10 text-lg font-serif ">
+      <p className="text-center py-5 text-lg font-serif ">
         Our latest product available in the store and online! Choose you're one
         now.
       </p>

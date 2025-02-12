@@ -6,12 +6,12 @@ import { IoPerson } from "react-icons/io5";
 const Blog = () => {
   return (
     <div>
-      <div className="container bg-slate-50 py-14 px-5">
+      <div className="container bg-slate-50 py-10 px-5">
         <div className="place-content-center">
-          <h1 className="text-center font-bold text-5xl my-5">
+          <h1 className="text-center font-bold text-5xl font-serif">
             Latest Blog Posts
           </h1>
-          <p className="text-center font-normal text-lg mb-12">
+          <p className="text-center font-normal text-lg my-5 font-serif">
             Our team member's share daily blogs and experience here.
           </p>
           <div data-aos="zoom-in-up" className=" justify-evenly flex gap-10">

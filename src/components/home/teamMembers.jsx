@@ -8,12 +8,12 @@ import Image from "next/image";
 
 const TeamMembers = () => {
   return (
-    <div className="container bg-neutral-100 px-12 py-28">
+    <div className="container bg-neutral-100 px-12 py-10">
       <div className="text-center">
         <h1 className=" font-bold text-5xl font-serif">
           Meet our Team Members
         </h1>
-        <p className="mt-5 mb-14 text-slate-700">
+        <p className="mt-5 mb-14 text-slate-700 font-serif">
           Different layouts and styles for team sections.
         </p>
       </div>
@@ -75,10 +75,10 @@ const TeamMembers = () => {
           <p className="text-gray-500">CEO-Founder</p>
         </div>
       </div>
-      <button className=" place-self-center flex gap-3 p-3 cursor-pointer px-10 stage-btn mt-14 border border-gray-300 font-medium rounded-md">
+      {/* <button className=" place-self-center flex gap-3 p-3 cursor-pointer px-10 stage-btn mt-14 border border-gray-300 font-medium rounded-md">
         View all Members
         <GoArrowRight className="mt-1" />
-      </button>
+      </button> */}
     </div>
   );
 };

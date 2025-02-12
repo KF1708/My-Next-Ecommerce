@@ -4,9 +4,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Divider } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, removeFromCart } from "@/redux/cart";
 
 const ProductDetails = ({ id }) => {
-  const [productDetails, setProductDetails] = useState([]);
+  const [productDetails, setProductDetails] = useState({});
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  console.log("Cart", cart);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -29,23 +34,28 @@ const ProductDetails = ({ id }) => {
 
   return (
     <div className=" ">
-      <div className="py-10 px-5 m-10 rounded-2xl  bg-slate-200 ">
+      <h1 className="text-center p-5 text-xl font-semibold font-serif text-blue-500">
+        Product Details
+      </h1>
+      <div className="flex justify-evenly gap-5 m-5">
         <div className="product_image">
-          {/* <Image
-            src={productDetails?.thumbnail}
+          <Image
+            src={productDetails?.thumbnail || "/dummyImage.png"}
             height={250}
             width={200}
             alt={`product ${productDetails.name}`}
-          /> */}
+            className="h-80 w-80"
+          />
         </div>
         <div className="">
-          <h4 className="text-lg font-serif text-center">
+          <h4 className="title text-xl font-semibold font-serif text-center ">
             {productDetails?.name}
           </h4>
+
           <Divider />
 
-          <div className=" text-center">
-            <div>
+          <div className="product-price pb-10 px-14">
+            <div className="px-5">
               {productDetails.discount?.value > 0 ? (
                 <div>
                   {productDetails?.discount?.discountType === "flat" && (
@@ -58,6 +68,7 @@ const ProductDetails = ({ id }) => {
                   )}
                   {productDetails?.discount?.discountType === "percent" && (
                     <h2 className="price">
+                      $
                       {productDetails?.price -
                         Math.floor(
                           productDetails.price *
@@ -72,6 +83,14 @@ const ProductDetails = ({ id }) => {
               ) : (
                 <h2 className="price">${productDetails?.price}</h2>
               )}
+            </div>
+            <div className="">
+              <h1 className="text-lg font-serif font-semibold">
+                Stock:
+                <span className="text-red-600 font-sans">
+                  ({productDetails?.stock})
+                </span>
+              </h1>
             </div>
             <div className="rating place-content-center p-5">
               <svg
@@ -89,7 +108,40 @@ const ProductDetails = ({ id }) => {
               ({productDetails?.ratingCount})
             </div>
           </div>
+          <div className=" grid grid-cols-6">
+            {" "}
+            <button
+              onClick={
+                cart.some((item) => item._id === productDetails._id)
+                  ? () => dispatch(removeFromCart(productDetails._id))
+                  : () => dispatch(addToCart(productDetails))
+              }
+              className="col-span-4 col-start-2 bg-blue-500 p-2 mb-5 rounded-xl text-lg font-serif text-gray-100 hover:bg-orange-500"
+            >
+              {cart.some((item) => item._id === productDetails._id)
+                ? "Remove from cart"
+                : "Add to cart"}
+            </button>
+          </div>
         </div>
+      </div>
+      <div className="">
+        <h4 className="text-balance text-lg font-serif text-center p-5">
+          {productDetails.description ? (
+            productDetails.description
+          ) : (
+            <p className="">
+              This is our best-selling product, highly rated for its outstanding
+              quality <br /> and performance. Crafted with premium materials, it
+              ensures durability and long-lasting use. <br /> Customers love its
+              reliability, making it a top choice in its category. Designed to
+              meet high standards, <br />
+              it offers excellent value for money. Experience the perfect blend
+              of quality, functionality, <br />
+              and customer satisfaction with this highly recommended product.
+            </p>
+          )}
+        </h4>
       </div>
     </div>
   );

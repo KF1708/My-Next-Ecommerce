@@ -2,10 +2,11 @@ import React from "react";
 import Navbar from "../home/Navbar";
 import Footer from "@/components/home/Footer";
 import { BiUpArrowAlt } from "react-icons/bi";
+import ReduxProvider from "@/provider";
 
 const CommonLayout = ({ children }) => {
   return (
-    <div>
+    <ReduxProvider>
       <Navbar />
       {children}
       <div className="fixed bottom-5 right-10 z-50">
@@ -16,7 +17,7 @@ const CommonLayout = ({ children }) => {
         </a>
       </div>
       <Footer />
-    </div>
+    </ReduxProvider>
   );
 };
 
