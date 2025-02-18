@@ -6,16 +6,16 @@ import { IoPerson } from "react-icons/io5";
 const Blog = () => {
   return (
     <div>
-      <div className="container bg-slate-50 py-10 px-5">
+      <div className=" bg-slate-50 py-10 px-5">
         <div className="place-content-center">
-          <h1 className="text-center font-bold text-5xl font-serif">
+          <h1 className="text-center font-bold text-2xl lg:text-5xl font-serif">
             Latest Blog Posts
           </h1>
-          <p className="text-center font-normal text-lg my-5 font-serif">
+          <p className="text-center font-normal text-sm lg:text-lg my-5 font-serif">
             Our team member's share daily blogs and experience here.
           </p>
-          <div data-aos="zoom-in-up" className=" justify-evenly flex gap-10">
-            <div className="group">
+          <div className="justify-evenly px-32 sm:px-36 md:px-72 lg:px-5 lg:flex flex-wrap gap-10">
+            <div className="pb-3">
               <div className="py-5 overflow-hidden">
                 <Image
                   src={"/blog_1.webp"}
@@ -31,7 +31,7 @@ const Blog = () => {
                 <p className=" text-sm text-slate-600">Saas & App</p>
               </div>
               <div className="block-title">
-                <h3 className="text-2xl font-normal cursor-pointer hover:text-blue-600 font-serif">
+                <h3 className="lg:text-2xl text-xl font-normal cursor-pointer hover:text-blue-600 font-serif">
                   3 Ways My Style Has Evolved
                 </h3>
                 <div className="flex p-2">
@@ -54,7 +54,7 @@ const Blog = () => {
               </div>
             </div>
 
-            <div data-aos="zoom-in-up" className="group">
+            <div className="pb-3">
               <div className="py-5 overflow-hidden rounded-xl">
                 <Image
                   src={"/blog_2.webp"}
@@ -70,7 +70,7 @@ const Blog = () => {
                 <p className=" text-sm text-slate-600">Saas & App</p>
               </div>
               <div className="block-title">
-                <h3 className="text-2xl font-normal cursor-pointer hover:text-blue-600 font-serif">
+                <h3 className="lg:text-2xl text-xl font-normal cursor-pointer hover:text-blue-600 font-serif">
                   Daily Style Diaries Off Europe!
                 </h3>
                 <div className="flex p-2">
@@ -92,7 +92,7 @@ const Blog = () => {
               </div>
             </div>
 
-            <div data-aos="zoom-in-up" className="group">
+            <div className="pb-3">
               <div className="py-5 overflow-hidden rounded-xl">
                 <Image
                   src={"/blog_3.webp"}
@@ -108,7 +108,7 @@ const Blog = () => {
                 <p className=" text-sm text-slate-600">Saas & App</p>
               </div>
               <div className="block-title">
-                <h3 className="text-2xl font-normal cursor-pointer hover:text-blue-600 font-serif">
+                <h3 className="lg:text-2xl text-xl font-normal cursor-pointer hover:text-blue-600 font-serif">
                   Pellentesque habitant morbi
                 </h3>
                 <div className="flex p-2">

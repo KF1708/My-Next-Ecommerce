@@ -38,7 +38,7 @@ const AllProducts = () => {
       <h2 className="text-center font-bold text-4xl font-serif pt-5 pb-8">
         All Products
       </h2>
-      <div className="px-10 pb-10 grid grid-cols-4 gap-4 relative">
+      <div className="px-10 pb-10 grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 gap-4 relative">
         {products?.map((product) => (
           <div
             onClick={() => detailsPage(product?._id)}
@@ -53,7 +53,7 @@ const AllProducts = () => {
                     height={250}
                     width={200}
                     alt={`product ${product.name}`}
-                    className="h-56 w-56"
+                    className="lg:h-56 lg:w-56 h-64"
                   />
                 </div>
               </Link>

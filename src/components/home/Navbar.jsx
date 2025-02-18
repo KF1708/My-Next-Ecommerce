@@ -1,9 +1,10 @@
 "use client";
-
 import Image from "next/image";
 import React, { useState } from "react";
 import { BsCart3 } from "react-icons/bs";
 import { IoSearchOutline } from "react-icons/io5";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { IoMdCloseCircle } from "react-icons/io";
 
 import logoImage from "../../../public/images/logo/logo.png";
 import { UserButton } from "@clerk/nextjs";
@@ -21,6 +22,7 @@ const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
+  const [isMobileActive, setIsMobileActive] = useState(false);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -50,14 +52,30 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar sticky top-0 z-50 shadow-md bg-slate-100">
-      <div className="flex justify-between gap-5">
-        <div>
+    <div className="sticky top-0 z-50 shadow-md bg-slate-100 ">
+      <div className="flex justify-between pl-5 gap-5 items-center lg:justify-between">
+        <div className="flex">
           <Link className="" href={"/"}>
-            <Image src={logoImage} alt="logo image" height={80} />
+            <Image src={logoImage} alt="logo image" height={70} className="" />
           </Link>
+          <button>
+            <RxHamburgerMenu
+              className="lg:hidden md:hidden"
+              onClick={() => setIsMobileActive(!isMobileActive)}
+            />
+          </button>
         </div>
-        <div className="flex mt-5 gap-10 font-semibold px-10">
+        <div
+          className={`flex w-40 m-2 flex-col gap-5 font-semibold text-sm lg:static px-5 rounded-lg p-2 absolute top-16 ${
+            isMobileActive ? "left-10" : "-left-64"
+          } h-40 lg:h-auto transition-all duration-300 shadow-lg lg:text-lg bg-slate-100 lg:bg-slate-100 lg:font-semibold lg:gap-10 lg:shadow-none lg:w-auto lg:flex-row md:bg-slate-100 md:font-semibold md:gap-10 md:shadow-none md:w-auto md:static md:h-auto md:flex-row`}
+        >
+          <button
+            className="absolute top-2 right-2 md:hidden lg:hidden"
+            onClick={() => setIsMobileActive(false)}
+          >
+            <IoMdCloseCircle />
+          </button>
           <Link className="" href={"/"}>
             {" "}
             <h3>HOME</h3>
@@ -77,7 +95,7 @@ const Navbar = () => {
             <h3>CONTACT</h3>
           </Link>
         </div>
-        <div className="flex gap-10 px-10 p-6">
+        <div className="flex gap-10 px-10 items-center md:gap-10 lg:gap-10">
           <IoSearchOutline className="text-2xl " onClick={showModal} />
           <Modal
             title="Search Items"
@@ -97,7 +115,7 @@ const Navbar = () => {
 
           <BsCart3 className="text-2xl " onClick={showDrawer} />
           <Drawer title="Add to cart" onClose={onClose} open={open}>
-            <CartProduct />
+            <CartProduct setOpen={setOpen} />
           </Drawer>
           <UserButton afterSignOutUrl="/" className=" " />
         </div>

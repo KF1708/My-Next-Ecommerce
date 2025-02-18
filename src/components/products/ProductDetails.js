@@ -44,7 +44,7 @@ const ProductDetails = ({ id }) => {
             height={250}
             width={200}
             alt={`product ${productDetails.name}`}
-            className="h-80 w-80"
+            className="lg:h-80 lg:w-80 h-52"
           />
         </div>
         <div className="">

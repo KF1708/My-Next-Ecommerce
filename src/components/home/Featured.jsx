@@ -51,7 +51,8 @@ const Featured = () => {
             0: {
               slidesPerView: 1,
             },
-            560: {
+
+            640: {
               slidesPerView: 2,
             },
             860: {
@@ -95,7 +96,7 @@ const Featured = () => {
                       height={250}
                       width={200}
                       alt={`product ${product.name}`}
-                      className="h-56 w-56"
+                      className="lg:h-60 lg:w-60 h-96 md:h-72 sm:h-52"
                     />
                   </div>
                 </Link>

@@ -13,18 +13,15 @@ import blogImageSix from "../../../public/images/blog/blog_6.webp";
 const Blog = () => {
   return (
     <div>
-      <div className="container bg-amber-50 py-14 px-5">
+      <div className=" bg-amber-50 py-14 px-10">
         <div className="place-content-center">
-          <h1 className="text-center font-bold text-5xl my-5 font-serif">
+          <h1 className="text-center font-bold lg:text-5xl md:text-2xl text-xl my-5 font-serif">
             Latest Blog Posts
           </h1>
-          <p className="text-center font-normal text-lg mb-12">
-            Our team member's share daily blogs and experience here.
+          <p className="text-center font-normal lg:text-lg text-sm lg:mb-5 mb-1">
+            Our team members share daily blogs and experience here.
           </p>
-          <div
-            data-aos="zoom-in-up"
-            className=" justify-evenly grid grid-cols-3 p-5 pb-20 gap-10"
-          >
+          <div className=" justify-evenly grid lg:grid-cols-3 grid-cols-2 p-5 pb-20 gap-10">
             <div className="group">
               <div className="py-5 overflow-hidden">
                 <Image
@@ -64,12 +61,12 @@ const Blog = () => {
               </div>
             </div>
 
-            <div data-aos="zoom-in-up" className="group">
+            <div className="group">
               <div className="py-5 overflow-hidden rounded-xl">
                 <Image
                   src={blogImageTwo}
                   alt="blog image"
-                  height={50}
+                  height={100}
                   width={350}
                   className=" rounded-xl"
                 />

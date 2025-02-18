@@ -7,14 +7,14 @@ import Link from "next/link";
 const Collection = () => {
   return (
     <div className="py-10">
-      <h2 className="font-serif font-bold text-center text-3xl pb-10">
+      <h2 className="font-serif font-bold text-center text-xl lg:text-3xl pb-10">
         New Arrivals And Latest Collection
       </h2>
       <div className="flex gap-9 justify-evenly">
         <Link href={"/product"}>
           <Image
             src={collectionImageOne}
-            className="overflow-hidden transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+            className="p-3 overflow-hidden transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
           />
         </Link>
         <Link href={"/product"}>
@@ -22,7 +22,7 @@ const Collection = () => {
             src={collectionImageTwo}
             height={300}
             width={550}
-            className="overflow-hidden transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+            className="p-3 overflow-hidden transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
           />
         </Link>
       </div>

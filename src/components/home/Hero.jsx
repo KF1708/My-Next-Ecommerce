@@ -32,17 +32,17 @@ const Hero = () => {
         <SwiperSlide>
           <div className="relative">
             <Image src={heroImageOne} />
-            <div className=" absolute top-[30%] left-[30%]">
-              <h2 className="font-extrabold font-serif text-center text-5xl">
+            <div className="absolute lg:top-[30%] lg:left-[30%] top-5 left-14 sm:top-7 sm:left-20 md:top-10 md:left-44">
+              <h2 className="font-extrabold font-serif text-center text-base sm:text-xl md:text-2xl lg:text-5xl">
                 Winter <br /> Big Sale 2025
               </h2>
-              <p className="py-9 font-medium text-lg">
+              <p className="py-9 font-medium text-sm lg:text-lg">
                 Discover the collection as styled by fashion in our new season
                 campaign.
               </p>
               <Link href={"/product"}>
                 {" "}
-                <button className="font-bold border-2 p-3 ml-60 my-20 border-zinc-900">
+                <button className="font-bold border-2 p-3 ml-40 lg:ml-60 sm:my-5 lg:my-20 md:my-10 border-zinc-900">
                   SHOP NOW
                 </button>
               </Link>
@@ -52,17 +52,17 @@ const Hero = () => {
         <SwiperSlide>
           <div className="relative">
             <Image src={heroImageTwo} />
-            <div className=" absolute top-[30%] left-[30%]">
-              <h2 className="font-extrabold font-serif text-center text-5xl">
+            <div className="absolute lg:top-[30%] lg:left-[30%] top-5 sm:top-7 left-14 sm:left-20 md:top-10 md:left-44">
+              <h2 className="font-extrabold font-serif text-center text-base sm:text-xl md:text-2xl lg:text-5xl">
                 Men Collection <br /> Big Sale 2025
               </h2>
-              <p className="py-9 font-medium text-lg">
+              <p className="py-9 font-medium text-sm lg:text-lg">
                 Discover the collection as styled by fashion in our new season
                 campaign.
               </p>
               <Link href={"/product"}>
                 {" "}
-                <button className="font-bold border-2 p-3 ml-60 my-20 border-zinc-900">
+                <button className="font-bold border-2 p-3 ml-40 lg:ml-60 sm:my-5 lg:my-20 md:my-10 border-zinc-900">
                   SHOP NOW
                 </button>
               </Link>
@@ -72,17 +72,17 @@ const Hero = () => {
         <SwiperSlide>
           <div className="relative">
             <Image src={heroImageThree} />
-            <div className=" absolute top-[30%] right-[50%]">
-              <h2 className="font-extrabold font-serif text-center text-5xl">
+            <div className=" absolute lg:top-[30%] lg:right-[50%] top-5 sm:top-7 sm:right-32 right-32  md:top-10 md:right-60">
+              <h2 className="font-extrabold font-serif text-center text-base sm:text-xl md:text-2xl lg:text-5xl">
                 Women Collection <br /> Big Sale 2025
               </h2>
-              <p className="py-9 font-medium text-lg">
+              <p className="py-9 font-medium text-sm lg:text-lg">
                 Discover the collection as styled by fashion in our new season
                 campaign.
               </p>
               <Link href={"/product"}>
                 {" "}
-                <button className="font-bold border-2 p-3 ml-60 my-20 border-zinc-900">
+                <button className="font-bold border-2 p-3 ml-40 lg:ml-60 sm:my-5 lg:my-20 md:my-10 border-zinc-900">
                   SHOP NOW
                 </button>
               </Link>

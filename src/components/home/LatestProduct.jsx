@@ -35,11 +35,11 @@ const LatestProduct = () => {
         <Swiper
           breakpoints={{
             640: {
-              slidesPerView: 1,
+              slidesPerView: 3,
               spaceBetween: 20,
             },
             768: {
-              slidesPerView: 3,
+              slidesPerView: 4,
               spaceBetween: 40,
             },
             1024: {
@@ -98,7 +98,7 @@ const LatestProduct = () => {
             <p className=" font-medium">Short Slive Shirt</p>
           </SwiperSlide>
           <SwiperSlide>
-            <Image src={manImageSix} alt="man shirt" height={150} width={300} />
+            <Image src={manImageSix} alt="man shirt" />
             <p className="text-red-600 font-bold">$59.00</p>
             <p className=" font-medium">Rain Jacket</p>
           </SwiperSlide>

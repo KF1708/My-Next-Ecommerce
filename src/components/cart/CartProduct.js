@@ -2,14 +2,28 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Divider } from "antd";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { MdDeleteForever } from "react-icons/md";
-import { IoClose } from "react-icons/io5";
+
 import { removeAll, removeFromCart } from "@/redux/cart";
 
-const CartProduct = () => {
+import Link from "next/link";
+
+const CartProduct = ({ setOpen }) => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
+  const subTotal = cart.reduce((sum, item) => sum + item.price, 0);
+  console.log("Cart subtotal price", subTotal);
+
+  const tax = (subTotal * 5) / 100;
+  const total = subTotal - tax;
+
+  const handleCheckOut = () => {
+    dispatch(removeAll([]));
+    setOpen(false);
+  };
+
   const removeCart = (id) => {
     dispatch(removeFromCart(id));
   };
@@ -45,25 +59,30 @@ const CartProduct = () => {
           </div>
           <div className="py-2">
             <h4 className="flex font-semibold justify-between">
-              Sub total: <span className="font-bold">${}</span>
+              Sub total: <span className="font-bold">${subTotal}</span>
             </h4>
             <Divider style={{ margin: "10px 0" }} />
             <h4 className="flex font-semibold justify-between">
-              Tax: <span className="font-bold">${}</span>
+              Tax 5%: <span className="font-bold">${tax}</span>
             </h4>
             <Divider style={{ margin: "10px 0" }} />
             <h4 className="flex font-semibold justify-between">
-              Total: <span className="font-bold">${}</span>
+              Total: <span className="font-bold">${total}</span>
             </h4>
 
-            <div className="flex gap-7">
+            <div className="flex justify-evenly gap-7">
               {" "}
-              <button className="w-full mt-8 font-semibold bg-lime-500 text-lg font-serif text-white p-1 rounded-lg hover:bg-blue-600">
-                Checkout
-              </button>
+              <Link href={"/"}>
+                <button
+                  onClick={handleCheckOut}
+                  className=" mt-8 font-semibold bg-lime-500 text-lg font-serif text-white p-1 rounded-lg hover:bg-blue-600"
+                >
+                  Checkout
+                </button>
+              </Link>
               <button
                 onClick={() => dispatch(removeAll([]))}
-                className="bg-red-600 text-lg font-serif text-white p-1 w-full mt-8 font-semibold rounded-lg hover:bg-amber-400"
+                className="bg-red-600 text-lg font-serif text-white p-1  mt-8 font-semibold rounded-lg hover:bg-amber-400"
               >
                 Remove All
               </button>

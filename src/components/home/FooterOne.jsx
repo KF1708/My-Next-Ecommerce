@@ -9,8 +9,8 @@ import FooterTwo from "./FooterTwo";
 
 const FooterOne = () => {
   return (
-    <div className="mb-20">
-      <div className="flex justify-evenly gap-36">
+    <div className="lg:mb-20 mb-10">
+      <div className="flex gap-16 lg:gap-52 md:gap-40 sm:gap-28 lg:px-10 px-5">
         <div>
           <button className="flex mt-3 cursor-pointer font-semibold font-serif">
             Follow Us <FaArrowRightLong className="mt-1 pt-1 pl-1 ml-2" />
