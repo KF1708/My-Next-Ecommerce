@@ -16,9 +16,9 @@ export default function Home() {
 
       <Collection />
       <FeedBack />
-      <Blog />
+      {/* <Blog />
 
-      <TeamMembers />
+      <TeamMembers /> */}
     </div>
   );
 }

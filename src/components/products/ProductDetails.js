@@ -6,31 +6,40 @@ import Image from "next/image";
 import { Divider } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart } from "@/redux/cart";
+import toast from "react-hot-toast";
 
 const ProductDetails = ({ id }) => {
-  const [productDetails, setProductDetails] = useState({});
-  const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
+  const [productDetails, setProductDetails] = useState({}); //productDetails is initialized as an empty object {}.This state will store the product's information fetched from the API.
+
+  const dispatch = useDispatch(); //Retrieves the dispatch function to send actions to the Redux store.
+
+  const cart = useSelector((state) => state.cart); //Retrieves the cart state from the Redux store. This allows us to check what items are already in the cart.
   console.log("Cart", cart);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
+      //This function fetches product details from the API.
+
       try {
+        //The id is dynamically inserted into the URL. await ensures the request completes before moving to the next step.
         const response = await axios.get(
           `https://staging-be-ecom.techserve4u.com/api/product/${id}`
         );
         if (response.data) {
-          setProductDetails(response.data.product || []);
+          setProductDetails(response.data.product || []); //updates state with product details. If product is undefined or null, an empty array [] is used as a fallback to avoid errors.
         }
       } catch (error) {
         console.error(error);
       }
     };
 
-    fetchProductDetails();
-  }, [id]);
+    fetchProductDetails(); //Executes the API call immediately when the component mounts.
+  }, [id]); //Ensures that product details are fetched whenever a new id is provided.
 
   console.log("Product Details :", productDetails);
+  // if (productDetails.stock === 0) {
+  //   return toast.error("There is no stock available!");
+  // }
 
   return (
     <div className=" ">
@@ -111,6 +120,7 @@ const ProductDetails = ({ id }) => {
           <div className=" grid grid-cols-6">
             {" "}
             <button
+              disabled={productDetails.stock === 0}
               onClick={
                 cart.some((item) => item._id === productDetails._id)
                   ? () => dispatch(removeFromCart(productDetails._id))

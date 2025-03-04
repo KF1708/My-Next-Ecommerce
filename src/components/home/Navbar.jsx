@@ -6,7 +6,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdCloseCircle } from "react-icons/io";
 
-import logoImage from "../../../public/images/logo/logo.png";
+import logoImage from "../../../public/images/logo/logo-1.png";
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { Modal } from "antd";
@@ -66,9 +66,9 @@ const Navbar = () => {
           </button>
         </div>
         <div
-          className={`flex w-40 m-2 flex-col gap-5 font-semibold text-sm lg:static px-5 rounded-lg p-2 absolute top-16 ${
+          className={`flex w-40 m-2 flex-col gap-3 font-semibold text-sm lg:static px-5 rounded-lg p-2 absolute top-16 ${
             isMobileActive ? "left-10" : "-left-64"
-          } h-40 lg:h-auto transition-all duration-300 shadow-lg lg:text-lg bg-slate-100 lg:bg-slate-100 lg:font-semibold lg:gap-10 lg:shadow-none lg:w-auto lg:flex-row md:bg-slate-100 md:font-semibold md:gap-10 md:shadow-none md:w-auto md:static md:h-auto md:flex-row`}
+          } h-40 lg:h-auto transition-all duration-300 shadow-lg lg:text-lg bg-slate-100 lg:bg-slate-100 lg:font-semibold lg:gap-8 lg:shadow-none lg:w-auto lg:flex-row md:bg-slate-100 md:font-semibold md:gap-5 md:shadow-none md:w-auto md:static md:h-auto md:flex-row`}
         >
           <button
             className="absolute top-2 right-2 md:hidden lg:hidden"
@@ -93,6 +93,10 @@ const Navbar = () => {
           <Link className="" href={"/contact"}>
             {" "}
             <h3>CONTACT</h3>
+          </Link>
+          <Link className="" href={"/aboutUs"}>
+            {" "}
+            <h3>ABOUT US</h3>
           </Link>
         </div>
         <div className="flex gap-10 px-10 items-center md:gap-10 lg:gap-10">

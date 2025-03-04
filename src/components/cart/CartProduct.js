@@ -1,3 +1,4 @@
+"use client";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Divider } from "antd";
@@ -9,23 +10,26 @@ import { removeAll, removeFromCart } from "@/redux/cart";
 
 import Link from "next/link";
 
+// setOpen is a function (passed from the parent component) that controls whether the cart is open or closed.
 const CartProduct = ({ setOpen }) => {
-  const cart = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart); //This hooks into the Redux store and retrieves the cart state.It means cart contains an array of items currently in the user's shopping cart.
 
-  const subTotal = cart.reduce((sum, item) => sum + item.price, 0);
+  const dispatch = useDispatch(); //Provides access to dispatch actions (used for modifying Redux state).
+
+  const subTotal = cart.reduce((sum, item) => sum + item.price, 0); //Iterates over the cart array.Sums up the price of each item. Starts with an initial sum of 0.
   console.log("Cart subtotal price", subTotal);
 
-  const tax = (subTotal * 5) / 100;
-  const total = subTotal - tax;
+  const tax = (subTotal * 5) / 100; //Calculates 5% tax of the subtotal.
+  const total = subTotal + tax;
 
   const handleCheckOut = () => {
-    dispatch(removeAll([]));
-    setOpen(false);
+    dispatch(removeAll([])); //Calls the Redux action removeAll([]).This likely clears all items from the cart in the Redux store.
+
+    setOpen(false); //Closes the cart UI after checkout
   };
 
   const removeCart = (id) => {
-    dispatch(removeFromCart(id));
+    dispatch(removeFromCart(id)); //Calls the Redux action removeFromCart(id). Removes a specific item (with the given id) from the cart.
   };
   return (
     <div>
@@ -72,7 +76,7 @@ const CartProduct = ({ setOpen }) => {
 
             <div className="flex justify-evenly gap-7">
               {" "}
-              <Link href={"/"}>
+              <Link href={process.env.NEXT_PUBLIC_STRIPE_LINK || "/"}>
                 <button
                   onClick={handleCheckOut}
                   className=" mt-8 font-semibold bg-lime-500 text-lg font-serif text-white p-1 rounded-lg hover:bg-blue-600"

@@ -9,33 +9,54 @@ import { Divider } from "antd";
 
 import Image from "next/image";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 const SearchData = () => {
-  const { search } = useSelector((state) => state.search);
+  const { search } = useSelector((state) => state.search); //Uses Redux's useSelector hook to extract search from the search state. Redux state helps in global state management, ensuring search can be accessed anywhere.
 
   const [products, setProducts] = useState([]);
-  const router = useRouter();
+  const router = useRouter(); //Provides Next.js router object.
 
   const detailsPage = (id) => {
-    router.push(`/product/${id}`);
+    router.push(`/product/${id}`); //When a user clicks on a product, they are redirected to /product/{id}. Uses router.push() for navigation.
   };
 
   useEffect(() => {
+    let isMounted = true; // Prevents double execution ().Avoids duplicate API calls or state updates when the component unmounts. This prevents memory leaks and fixes issues with fast re-renders in React Strict Mode.
+
     const fetchSearchProducts = async () => {
       try {
+        //Sends a GET request to fetch search results. Uses axios.get to request the API with search as a query parameter.
         const response = await axios.get(
           `https://staging-be-ecom.techserve4u.com/api/product/getSearchProducts?search=${search}`
         );
-        if (response.data?.success) {
-          setProducts(response.data.products || []);
+
+        //Checks if the API response is successful (success: true). Also verifies that products exist (products.length > 0).
+        if (response.data?.success && response.data.products.length > 0) {
+          if (isMounted) setProducts(response.data.products); //If isMounted is still true (component is active), it updates the products state.
+        } else {
+          if (isMounted) {
+            setProducts([]); // Clears the product list.
+            toast.error(
+              "No products found for your search. Please try again!",
+              {
+                id: "search-toast", //  Prevents duplicate toast messages.
+              }
+            );
+            router.push("/product");
+          }
         }
       } catch (error) {
-        console.error(error);
+        console.error(error); //Catches and logs errors if the API request fails. Helps with debugging issues like network failures or invalid API responses.
       }
     };
 
-    fetchSearchProducts();
-  }, [search]);
+    fetchSearchProducts(); //Calls fetchSearchProducts() when the component mounts or when search changes.
+
+    return () => {
+      isMounted = false; // Cleanup function to prevent duplicate state updates.If the user navigates away quickly, it stops the API response from modifying state.
+    };
+  }, [search, router]); // Removed `router` from dependencies
 
   console.log("All Search Products : ", products);
 
@@ -76,7 +97,7 @@ const SearchData = () => {
 
                   <div className="product-price">
                     <div>
-                      {product.discount.value > 0 ? (
+                      {product?.discount?.value > 0 ? (
                         <div>
                           {product?.discount?.discountType === "flat" && (
                             <h2 className="price">

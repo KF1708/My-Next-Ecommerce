@@ -11,19 +11,27 @@ const AllProducts = () => {
   const [products, setProducts] = useState([]);
   const router = useRouter();
 
+  // This function is triggered when a user clicks on a product.
   const detailsPage = (id) => {
     router.push(`/product/${id}`);
   };
+  //  Redirects the user to /product/[id], where [id] is dynamically replaced with the selected product’s ID.
 
   useEffect(() => {
     const fetchAllProducts = async () => {
       try {
+        //Waits for the API response before moving to the next step. This sends a GET request to fetch data from the given API endpoint.
         const response = await axios.get(
           "https://staging-be-ecom.techserve4u.com/api/product/getFeatured"
         );
+
+        //Using (Optional Chaining) ensures that if data is undefined or null, it doesn’t cause an error.
+
         if (response.data?.success) {
+          //The actual data returned from the API. The HTTP status code (e.g., 200 for success, 404 for not found).Metadata about the response.
           setProducts(response.data.products || []);
         }
+        // If response.data.products exists, update the state with the fetched products. If products is undefined or null, set products to an empty array ([]) to prevent errors.
       } catch (error) {
         console.error(error);
       }
@@ -34,7 +42,7 @@ const AllProducts = () => {
 
   console.log("All Products : ", products);
   return (
-    <div>
+    <div className="bg-green-50">
       <h2 className="text-center font-bold text-4xl font-serif pt-5 pb-8">
         All Products
       </h2>
