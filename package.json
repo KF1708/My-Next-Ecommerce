@@ -23,6 +23,7 @@
     "swiper": "^11.2.2"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.26.8",
     "@eslint/eslintrc": "^3",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
