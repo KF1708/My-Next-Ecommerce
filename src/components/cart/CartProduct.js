@@ -76,7 +76,15 @@ const CartProduct = ({ setOpen }) => {
 
             <div className="flex justify-evenly gap-7">
               {" "}
-              <Link href={process.env.NEXT_PUBLIC_STRIPE_LINK || "/"}>
+              {/* <Link href={process.env.NEXT_PUBLIC_STRIPE_LINK || "/"}>
+                <button
+                  onClick={handleCheckOut}
+                  className=" mt-8 font-semibold bg-lime-500 text-lg font-serif text-white p-1 rounded-lg hover:bg-blue-600"
+                >
+                  Checkout
+                </button>
+              </Link> */}
+              <Link href={`/checkout?amount=${total}`}>
                 <button
                   onClick={handleCheckOut}
                   className=" mt-8 font-semibold bg-lime-500 text-lg font-serif text-white p-1 rounded-lg hover:bg-blue-600"

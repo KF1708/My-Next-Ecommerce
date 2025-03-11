@@ -52,7 +52,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="sticky top-0 z-50 shadow-md bg-slate-100 ">
+    <div className="sticky top-0 z-[999] shadow-md bg-slate-100 ">
       <div className="flex justify-between pl-5 gap-5 items-center lg:justify-between">
         <div className="flex">
           <Link className="" href={"/"}>
