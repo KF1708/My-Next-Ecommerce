@@ -28,7 +28,7 @@ const SearchData = () => {
       try {
         //Sends a GET request to fetch search results. Uses axios.get to request the API with search as a query parameter.
         const response = await axios.get(
-          `https://staging-be-ecom.techserve4u.com/api/product/getSearchProducts?search=${search}`
+          `${process.env.NEXT_PUBLIC_BASE_URL}/product/getSearchProducts?search=${search}`
         );
 
         //Checks if the API response is successful (success: true). Also verifies that products exist (products.length > 0).

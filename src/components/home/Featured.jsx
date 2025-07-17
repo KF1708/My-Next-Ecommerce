@@ -27,7 +27,7 @@ const Featured = () => {
       try {
         //Waits for the API response before moving to the next step. This sends a GET request to fetch data from the given API endpoint.
         const response = await axios.get(
-          "https://staging-be-ecom.techserve4u.com/api/product/getProducts"
+          `${process.env.NEXT_PUBLIC_BASE_URL}/product/getProducts`
         );
 
         //The actual data returned from the API. The HTTP status code (e.g., 200 for success, 404 for not found).Metadata about the response.

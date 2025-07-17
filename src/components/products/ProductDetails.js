@@ -23,7 +23,7 @@ const ProductDetails = ({ id }) => {
       try {
         //The id is dynamically inserted into the URL. await ensures the request completes before moving to the next step.
         const response = await axios.get(
-          `https://staging-be-ecom.techserve4u.com/api/product/${id}`
+          `${process.env.NEXT_PUBLIC_BASE_URL}/product/${id}`
         );
         if (response.data) {
           setProductDetails(response.data.product || []); //updates state with product details. If product is undefined or null, an empty array [] is used as a fallback to avoid errors.
